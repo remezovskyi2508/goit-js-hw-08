@@ -1,0 +1,14 @@
+
+.gallery{
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+/* 
+Я міг би добавити pointer кастомний як в макеті, але для цього маю внести папку з картинками, в іншому випадку мав би шукати посилання на простори інтернету, тому вирішив залишити як є....
+
+cursor: url('path/to/custom-cursor.png'), pointer; 
+*/

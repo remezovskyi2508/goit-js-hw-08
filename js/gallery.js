@@ -64,16 +64,24 @@ const images = [
   },
 ];
 
-
 const gallery = document.querySelector(".gallery");
 
-const galleryImg = images.map((image) => {
-    return `<li class='gallery-item'><a class='gallery-link' href=${image.original}><img class='gallery-image' src=${image.preview} data-source=${image.original} alt=${image.description}/></a></li>`;
-}).join("");
+const galleryImg = images
+  .map((image) => {
+    return `<li class='gallery-item'><a class='gallery-link' href=${image.original}><img class='gallery-image' src=${image.preview} data-source=${image.original} alt=${image.description} style='height: 200px; width: 360px;'/></a></li>`;
+  })
+  .join("");
 
 gallery.innerHTML = galleryImg;
 
 gallery.addEventListener("click", (event) => {
-    event.preventDefault();
-    if (event.target.nodeName !== "IMG") return;
+  event.preventDefault();
+  if (event.target.nodeName !== "IMG") return;
+  const largeImg = event.target.dataset.source;
+
+  const instance = basicLightbox.create(`
+    <img src=${largeImg} style="width: 1112px; height: 640px;">
+`);
+
+  instance.show();
 });
